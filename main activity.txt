@@ -1,0 +1,17 @@
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_driver);
+
+        showMap = (Button)findViewById(R.id.showButton);
+        showMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MapFragmentClass mapFragment = new MapFragmentClass();
+                fragmentTransaction.add(R.id.mapLayout , mapFragment);
+                fragmentTransaction.commit();
+            }
+        });
+    }
